@@ -2,12 +2,18 @@
 #define IMAGESANDITEMS
 
 #include <SDL2/SDL.h>
+#include <SDL2/SDL_image.h>
+#include <string>
+
+void itemInit();
+void itemQuit();
 
 class item
 {
     public:
     item();
     virtual ~item();
+    bool loadImage(std::string filename);
     void draw(SDL_Surface * dest);
 
     private:

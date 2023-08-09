@@ -7,7 +7,7 @@ int main(int argc, char ** arg)
     SDL_Surface * screen = SDL_GetWindowSurface(win);
 
     item bob;
-
+    bob.loadImage("grass.png");
     bool run = true;
     while(run)
     {

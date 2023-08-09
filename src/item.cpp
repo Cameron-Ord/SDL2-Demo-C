@@ -1,5 +1,16 @@
 #include "item.h"
 
+void itemInit()
+{
+    SDL_Init(SDL_INIT_EVERYTHING);
+    IMG_Init(IMG_INIT_PNG);
+}
+void itemQuit()
+{
+    SDL_Quit();
+    IMG_Quit();
+}
+
 item::item()
 {
     pos.x = 30;
@@ -17,6 +28,24 @@ item::~item()
     {
         SDL_FreeSurface(image);
     }
+}
+
+bool item::loadImage(std::string filename)
+{
+    if(image != NULL)
+    {
+        SDL_FreeSurface(image);
+    }
+    image = IMG_Load(filename.c_str());
+    if(image != NULL)
+    {
+        return true;
+
+    }else{
+    
+        return false;
+    }
+    
 }
 
 void item::draw(SDL_Surface * dest)

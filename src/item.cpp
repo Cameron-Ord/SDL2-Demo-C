@@ -60,6 +60,29 @@ void item::setRenderer(SDL_Renderer * dest)
     ren = dest;
 }
 
+void item::setSize(int w, int h)
+{
+    pos.w = w;
+    pos.h = h;
+}
+
+void item::draw(double angle)
+{
+    if(image != NULL)
+    {
+        SDL_Point pt;
+        pt.x = pos.w/2;
+        pt.y = pos.h/2;
+        pt.x += pos.x;
+        pt.y += pos.y;
+        SDL_RenderCopyEx(ren, image, NULL, &pos, angle, &pt, SDL_FLIP_NONE);
+    }
+    else
+    {
+        std::cout << "Help, image is NULL at draw()\n";
+    }
+}
+
 void item::draw()
 {
     if(image != NULL)

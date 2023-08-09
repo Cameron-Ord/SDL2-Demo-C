@@ -15,6 +15,8 @@ class item
     virtual ~item();
     void setRenderer(SDL_Renderer * renderer);
     bool loadImage(std::string filename);
+    void setSize(int w, int h);
+    void draw(double angle);
     void draw();
 
     private:

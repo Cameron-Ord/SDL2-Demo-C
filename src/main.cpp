@@ -8,8 +8,11 @@ int main(int argc, char ** arg)
 
     item bob;
     bob.setRenderer(screen);
-    bob.loadImage("grass.png");
+    bob.loadImage("dagoth.png");
     bool run = true;
+    double ang = 0;
+    int s = 30;
+
     while(run)
     {
         SDL_Event ev;
@@ -23,8 +26,11 @@ int main(int argc, char ** arg)
             }
         }
 
-        bob.draw();
+        bob.setSize(s,s);
+        bob.draw(ang);
         SDL_RenderPresent(screen);
+        ang++;
+        s++;
 
     }
 
